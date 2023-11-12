@@ -1,0 +1,193 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* Fonts and root styles */
+
+@font-face {
+  font-family: "Lexend Deca";
+  font-display: swap;
+  font-weight: 400;
+  src: url(fonts/Lexend_Deca/LexendDeca-VariableFont_wght.ttf)
+    format("truetype");
+}
+@font-face {
+  font-family: "Big Shoulders Display";
+  font-display: swap;
+  font-weight: 700;
+  src: url(fonts/Big_Shoulders_Display/BigShouldersDisplay-VariableFont_wght.ttf)
+    format("truetype");
+}
+
+:root {
+  /* ---Font families--- */
+  --normal-font: "Lexend Deca";
+  --header-font: "Big Shoulders Display";
+  /* ---Primary colors--- */
+  --hsl-bright-orange: 31, 77%, 52%;
+  --hsl-dark-cyan: 184, 100%, 22%;
+  --hsl-darker-cyan: 179, 100%, 13%;
+  /* ---Neutral colors--- */
+  /* Paragraphs */
+  --transparent-white: hsla(0, 0%, 100%, 0.75);
+  /* Background, headings, buttons */
+  --light-gray: hsl(0, 0%, 95%);
+}
+
+/* General Styles */
+
+html {
+  font-size: 0.9375rem;
+  font-family: var(--normal-font);
+  color: var(--transparent-white);
+}
+
+body {
+  min-height: 100vh;
+  padding: 5rem 1rem;
+}
+
+.grid-flow {
+}
+
+.grid-item {
+  display: flex;
+  flex-flow: column;
+  padding: 3rem;
+  gap: 2rem;
+}
+
+.grid-item:nth-child(1) {
+  background: hsl(var(--hsl-bright-orange));
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.grid-item:nth-child(2) {
+  background: hsl(var(--hsl-dark-cyan));
+}
+.grid-item:nth-child(3) {
+  background: hsl(var(--hsl-darker-cyan));
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.grid-item img {
+}
+
+.grid-item h2 {
+  font-family: var(--header-font);
+  text-transform: uppercase;
+  color: white;
+  font-size: 2.5rem;
+}
+
+button {
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  background: white;
+  border: 2px solid white;
+  padding: 0.75rem 0.75rem;
+  max-width: 65%;
+}
+
+.button-1 {
+  color: hsl(var(--hsl-bright-orange));
+}
+.button-2 {
+  color: hsl(var(--hsl-dark-cyan));
+}
+.button-3 {
+  color: hsl(var(--hsl-darker-cyan));
+}
+
+button:hover,
+button:focus-visible {
+  background: none;
+  color: white;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 892px) {
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+  .grid-flow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    min-width: 800px;
+    max-width: 920px;
+  }
+  .grid-item p {
+    margin-bottom: 4rem;
+  }
+  .grid-item:nth-child(1) {
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+  .grid-item:nth-child(2) {
+    border-radius: 0;
+  }
+  .grid-item:nth-child(3) {
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+}
