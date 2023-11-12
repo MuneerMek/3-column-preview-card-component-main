@@ -128,9 +128,6 @@ body {
   border-radius: 0 0 0.5rem 0.5rem;
 }
 
-.grid-item img {
-}
-
 .grid-item h2 {
   font-family: var(--header-font);
   text-transform: uppercase;
@@ -166,11 +163,12 @@ button:focus-visible {
 
 /* Media Queries */
 
-@media only screen and (min-width: 892px) {
+@media only screen and (min-width: 862px) {
   body {
     min-height: 100vh;
     display: grid;
     place-items: center;
+    padding: 0;
   }
   .grid-flow {
     display: grid;
@@ -183,11 +181,14 @@ button:focus-visible {
   }
   .grid-item:nth-child(1) {
     border-radius: 0.5rem 0 0 0.5rem;
+    box-shadow: 0 1rem 1rem hsl(var(--hsl-bright-orange), 0.4);
   }
   .grid-item:nth-child(2) {
     border-radius: 0;
+    box-shadow: 0 1rem 1rem hsl(var(--hsl-dark-cyan), 0.4);
   }
   .grid-item:nth-child(3) {
     border-radius: 0 0.5rem 0.5rem 0;
+    box-shadow: 0 1rem 1rem hsl(var(--hsl-darker-cyan), 0.4);
   }
 }
